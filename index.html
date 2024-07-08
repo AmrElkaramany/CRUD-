@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Workshop</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="w-75 mx-auto my-2">
+      <div>
+        <label for="productName">product Name :</label>
+        <input oninput="validationInputs(this)" class="form-control my-2" type="text" id="productName" />
+
+        <div class="alert alert-danger mt-2 py-2 d-none">
+          <small>product must start uppercase</small>
+        </div>
+
+      </div>
+      <div>
+        <label for="productPrice">product Price :</label>
+        <input oninput="validationInputs(this)"  class="form-control my-2" type="number" id="productPrice" />
+        
+        <div class="alert alert-danger mt-2 py-2 d-none">
+          <small>product must start uppercase</small>
+        </div>
+
+      </div>
+      <div>
+        <label for="productCategory ">product Category :</label>
+        <input
+          list="categoryList"
+          class="form-control my-2"
+          type="text"
+          id="productCategory"
+          oninput="validationInputs(this)" 
+        />
+        
+        <div class="alert alert-danger mt-2 py-2 d-none">
+          <small>product must start uppercase</small>
+        </div>
+
+        <datalist id="categoryList">
+          <option value="Tv"></option>
+          <option value="laptop"></option>
+          <option value="screens"></option>
+          <option value="Electronics"></option>
+          <option value="Mobile"></option>
+        </datalist>
+      </div>
+      <div>
+        <label for="productDescription  ">product Description :</label>
+        <input
+          list="description"
+          class="form-control my-2"
+          type="text"
+          id="productDescription"
+          oninput="validationInputs(this)" 
+        />
+        
+        <div class="alert alert-danger mt-2 py-2 d-none">
+          <small>product must start uppercase</small>
+        </div>
+        
+        <datalist id="description">
+          <option value="Good"></option>
+          <option value="veryGood"></option>
+          <option value="Excellent"></option>
+        </datalist>
+      </div>
+      <button id="addBtn" onclick="addProduct()" class="btn btn-outline-info my-2 d-block">
+        add Product
+      </button>
+      <button id="updateBtn" onclick="updateProduct(zzz)" class="btn btn-outline-info my-2 d-block d-none"> Update Product</button>
+    </div>
+
+    <div class="w-75 mx-auto">
+      <label class="my-2" for="search">Search By Product name </label>
+      <input
+        onkeyup="searchProduct(this.value)"
+        class="form-control"
+        type="text"
+        name=""
+        id="search"
+      />
+    </div>
+
+    <div class="w-75 mx-auto">
+      <table class="table">
+        <thead>
+          <th>Index</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </thead>
+        <tbody id="tableData"></tbody>
+      </table>
+    </div>
+
+
+
+
+    
+    <div id="modal" class="d-none justify-content-center align-items-center p-4 rounded-2 shadow-lg vh-100">
+      <div class="alertMsg bg-light rounded-2 p-4">
+        <div class="d-flex justify-content-between align-items-baseline">
+         <ul class="circles d-flex list-unstyled">
+           <li class="rounded-circle"></li>
+           <li class="rounded-circle"></li>
+           <li class="rounded-circle"></li>
+         </ul>
+         <div class="close-icon">
+             <i class="fa-solid fa-xmark"></i>
+
+         </div>
+         </div>
+         <h4 class="py-3 fw-400">
+             Site Name or Url is not valid, Please follow the rules below :
+           </h4>
+           <p class="mb-0 fw-400">
+             <i class="fa-regular fa-circle-right p-2"></i>
+             Site name must contain at least 3 characters
+           </p>
+           <p class="mb-0 fw-400 pt-2">
+             <i class="fa-regular fa-circle-right p-2"></i>
+             Site URL must be a valid one
+         </p>
+        
+      </div>
+     </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
